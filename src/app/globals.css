@@ -18,6 +18,10 @@
   --color-primary: var(--foreground);
   --color-secondary: var(--active);
   --font-sans: 'Rawline', sans-serif;
+  --font-medium: 'Rawline Medium', sans-serif;
+  --font-bold: 'Rawline Bold', sans-serif;
+  --font-italic: 'Rawline Italic', sans-serif;
+  --text-sm: 0.750rem; /* 12px */
 }
 
 /* @media (prefers-color-scheme: dark) {

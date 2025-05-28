@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Header } from "@/components/ui/Header";
+import { RouteProvider } from "../context/route-context";
 
 export const metadata: Metadata = {
   title: "Redome",
@@ -7,16 +9,17 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children, 
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        {children}
+    <html lang="pt-br">
+      <body className={`antialiased`}>
+        <RouteProvider>
+          <Header />
+          {children}
+        </RouteProvider>
       </body>
     </html>
   );
