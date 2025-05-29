@@ -2,7 +2,7 @@
 
 import { useRoute } from "@/context/route-context";
 import { useState } from "react";
-import { Logo } from "./Logo";
+import Logo from "@/components/ui/Logo";
 import { ProfileBlock } from "./ProfileBlock";
 import { FloatingMenu } from "./FloatingMenu";
 
@@ -11,7 +11,9 @@ export function Header() {
   return (
     <header className="bg-background h-[65px] justify-center text-white px-4 py-3 relative flex flex-col items-start md:flex-row md:items-center md:h-[75px] md:px-8">
       <div className={`flex w-full items-center ${pathname === "/demo" ? "justify-between" : "justify-between md:justify-start"}`}>
-        <Logo />
+        <Logo 
+          color={"#1A2E48"}
+        />
         {pathname === "/demo" && <ProfileBlock />}
       </div>
       {/* Menu Desktop */}

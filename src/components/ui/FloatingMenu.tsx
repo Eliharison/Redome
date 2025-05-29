@@ -18,7 +18,7 @@ export function FloatingMenu({ pathname }: { pathname: string }) {
           className="transition-transform duration-300"
           style={{ transform: fabOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}
         >
-          <path d="M12 8v8M8 12h8" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
+          <path d="M12 8v8M8 12h8" stroke="#fff" stroke-width="2" strokeLinecap="round" />
         </svg>
       </button>
       {fabOpen && (
