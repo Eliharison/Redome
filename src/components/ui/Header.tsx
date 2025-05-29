@@ -1,7 +1,6 @@
 "use client";
 
 import { useRoute } from "@/context/route-context";
-import { useState } from "react";
 import Logo from "@/components/ui/Logo";
 import { ProfileBlock } from "./ProfileBlock";
 import { FloatingMenu } from "./FloatingMenu";

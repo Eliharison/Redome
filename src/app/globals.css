@@ -3,7 +3,7 @@
                 
 
 :root {
-  --background: #fbfbfb;
+  --background: #f7f7f7;
   --foreground: #1a2e48;
   --shadow: #757575;
   --border: #4e4e4e;
@@ -35,4 +35,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+.icon-container {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.icon-path {
+  transition: d 0.3s ease-in-out;
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/ui/Header";
-
 import { RouteProvider } from "../context/route-context";
 
 export const metadata: Metadata = {
