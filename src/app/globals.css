@@ -3,11 +3,12 @@
                 
 
 :root {
-  --background: #f7f7f7;
+  --background: #FBFBFB;
   --foreground: #1a2e48;
   --shadow: #757575;
   --border: #4e4e4e;
   --active: #354f70;
+  --terciary: #2C3E50
 }
 
 @theme inline {
@@ -17,6 +18,7 @@
   --color-border: var(--border);
   --color-primary: var(--foreground);
   --color-secondary: var(--active);
+  --color-terciary: var(--terciary);
   --font-sans: 'Rawline', sans-serif;
   --font-medium: 'Rawline Medium', sans-serif;
   --font-black: 'Rawline Bold', sans-serif;
