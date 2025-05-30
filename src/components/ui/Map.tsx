@@ -11,8 +11,8 @@ export function Map() {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const [lng, setLng] = useState(-48.8); // Centro aproximado do estado de SP
-  const [lat, setLat] = useState(-26.9); // Centro aproximado do estado de SP
-  const [zoom, setZoom] = useState(5.25); // Zoom para visualizar o estado inteiro
+  const [lat, setLat] = useState(-22.5); // Centro aproximado do estado de SP
+  const [zoom, setZoom] = useState(6.15); // Zoom para visualizar o estado inteiro
 
   useEffect(() => {
     if (map.current) return;
@@ -169,8 +169,57 @@ export function Map() {
     }
   }, [lng, lat, zoom]);
 
+  // Função para centralizar no usuário
+  const centralizarNoUsuario = () => {
+    if (navigator.geolocation && map.current) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          map.current!.flyTo({ center: [longitude, latitude], zoom: 12 });
+        },
+        (error) => {
+          alert("Não foi possível obter sua localização.");
+        }
+      );
+    } else {
+      alert("Geolocalização não suportada.");
+    }
+  };
+
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-[300px] md:h-[600px] rounded-xl overflow-hidden shadow-md relative">
+      {/* Botões de controle do mapa no canto inferior direito */}
+      <div className="absolute bottom-4 right-4 z-10 flex flex-col gap-2 bg-white/80 rounded-lg shadow p-2">
+        <button
+          aria-label="Centralizar na minha localização"
+          className="w-10 h-10 flex items-center justify-center rounded hover:bg-gray-200 transition"
+          onClick={centralizarNoUsuario}
+        >
+          <span className="text-xl">🎯</span>
+        </button>
+        <button
+          aria-label="Zoom in"
+          className="w-10 h-10 flex items-center justify-center rounded hover:bg-gray-200 transition"
+          onClick={() => {
+            if (map.current) {
+              map.current.zoomIn();
+            }
+          }}
+        >
+          <span className="text-2xl font-bold">+</span>
+        </button>
+        <button
+          aria-label="Zoom out"
+          className="w-10 h-10 flex items-center justify-center rounded hover:bg-gray-200 transition"
+          onClick={() => {
+            if (map.current) {
+              map.current.zoomOut();
+            }
+          }}
+        >
+          <span className="text-2xl font-bold">-</span>
+        </button>
+      </div>
       <div ref={mapContainer} className="w-full h-full" />
     </div>
   );

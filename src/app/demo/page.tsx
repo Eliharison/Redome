@@ -13,7 +13,7 @@ export default function DemoPage() {
       </section>
 
       {/* Mapa */}
-      <div className="w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-md">
+      <div className="w-full h-[300px] md:h-[600px] rounded-sm overflow-hidden ">
         <Map />
       </div>
 
