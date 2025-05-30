@@ -25,12 +25,12 @@ export function Tech() {
                 </li>
               ))}
             </ul>
-            <p className="italic text-[#4a4a4a] text-justify mt-4 mb-4 sm: mr-10">
+            <p className="italic text-[#4a4a4a] text-justify mt-4 sm: mr-10">
               Nosso sistema detecta a presença de mosquitos e ativa automaticamente a proteção, garantindo eficiência máxima com consumo mínimo de recursos.
             </p>
           </div>
         </div>
-        <div className="bg-[#C7D9DD] p-6 md:p-8 rounded-xl mt-8 flex flex-wrap justify-around gap-6">
+        <div className="bg-[#C7D9DD] p-6 md:p-8 rounded-xl mt-3 flex flex-wrap justify-around gap-6">
           {[
             { value: '+95%', label: 'Eficácia Comprovada' },
             { value: '24h', label: 'Proteção Contínua' },
