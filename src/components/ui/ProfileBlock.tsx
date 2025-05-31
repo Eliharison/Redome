@@ -4,8 +4,8 @@ export function ProfileBlock() {
   return (
     <div className="flex items-center space-x-3">
       <div className="text-right">
-        <div className="text-base leading-none font-bold text-[#37475A]">Psyduck</div>
-        <div className="text-sm leading-none font-normal text-[#4B6177]">Agente Sanitário</div>
+        <div className="text-base leading-none font-bold text-[#37475A]">Renato</div>
+        <div className="text-sm leading-none font-normal text-[#4B6177]">Agente Sanitário | Campinas</div>
       </div>
       <Image
         src={"/Profile.webp"}
