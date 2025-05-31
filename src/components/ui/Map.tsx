@@ -8,20 +8,20 @@ import "mapbox-gl/dist/mapbox-gl.css";
 mapboxgl.accessToken =
   process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "SEU_TOKEN_MAPBOX_AQUI";
 
-export function Map() {
+export function Map({ latitude = -22.8920329, longitude = -47.2327026 }: { latitude?: number; longitude?: number }) {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<mapboxgl.Map | null>(null);
-  const [lng, setLng] = useState(-48.8);
-  const [lat, setLat] = useState(-22.5);
+  const [lng, setLng] = useState(longitude);
+  const [lat, setLat] = useState(latitude);
   const [zoom, setZoom] = useState(6.15);
   const [pontos, setPontos] = useState([
-    [-47.8445, -24.4971],
-    [-47.845, -24.4975],
-    [-47.844, -24.4965],
-    [-47.8455, -24.497],
-    [-47.8448, -24.4973],
-    [-47.8452, -24.4968],
-    [-47.8443, -24.4972],
+    [-47.033765, -22.931022],
+    [-47.046382, -22.936576],
+    [-47.093385, -22.939408],
+    [-47.089117, -22.887987],
+    [-47.038174, -22.883719],
+    [-47.097921 , -22.919236],
+    [-47.064382, -22.888512],
   ]);
 
   const updateMapSources = () => {
@@ -75,7 +75,6 @@ export function Map() {
         features,
       };
 
-      // Fonte heatmap e círculos
       map.current!.addSource("pontos-heatmap", {
         type: "geojson",
         data: geojson,
@@ -85,7 +84,6 @@ export function Map() {
         data: geojson,
       });
 
-      // Camada heatmap
       map.current!.addLayer({
         id: "heatmap-pontos",
         type: "heatmap",
@@ -126,7 +124,6 @@ export function Map() {
         },
       });
 
-      // Círculos ao redor dos pontos
       map.current!.addLayer({
         id: "circulos",
         type: "circle",
@@ -144,7 +141,6 @@ export function Map() {
         },
       });
 
-      // Adiciona marcadores visuais iniciais
       pontos.forEach((coord) => {
         const el = document.createElement("div");
         el.style.backgroundImage = "url('/pin.svg')";
@@ -172,7 +168,6 @@ export function Map() {
   useEffect(() => {
     if (!map.current) return;
 
-    // Remove todos os marcadores antigos
     if ((map.current as any)._customMarkers) {
       (map.current as any)._customMarkers.forEach((marker: mapboxgl.Marker) =>
         marker.remove()
@@ -180,7 +175,6 @@ export function Map() {
     }
     (map.current as any)._customMarkers = [];
 
-    // Adiciona marcadores para cada ponto
     pontos.forEach((coord) => {
       const el = document.createElement("div");
       el.style.backgroundImage = "url('/pin.svg')";
@@ -203,10 +197,19 @@ export function Map() {
     if (map.current) updateMapSources();
   }, [pontos]);
 
+  useEffect(() => {
+    setLat(latitude);
+    setLng(longitude);
+    if (map.current) {
+      map.current.flyTo({ center: [longitude, latitude], zoom: 12 });
+    }
+  }, [latitude, longitude]);
+
   const adicionarPonto = () => {
+    // Aumenta a randomização para até ~0.05 graus (~5km)
     const novoPonto = [
-      lng + (Math.random() - 0.5) * 0.01,
-      lat + (Math.random() - 0.5) * 0.01,
+      lng + (Math.random() - 0.5) * 0.1,
+      lat + (Math.random() - 0.5) * 0.1,
     ];
     setPontos((prev) => [...prev, novoPonto]);
   };
@@ -216,6 +219,8 @@ export function Map() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
+          setLat(latitude); 
+          setLng(longitude); 
           map.current!.flyTo({ center: [longitude, latitude], zoom: 12 });
         },
         () => {
@@ -248,36 +253,21 @@ export function Map() {
             className="w-10 h-10 flex items-center justify-center rounded hover:bg-gray-200 transition"
             title="Centralizar"
           >
-            <Image
-              src="/target.svg"
-              alt="Adicionar ponto"
-              width={24}
-              height={24}
-            />
+            <Image src="/target.svg" alt="Centralizar" width={24} height={24} />
           </button>
           <button
             onClick={() => map.current?.zoomIn()}
             className="w-10 h-10 flex items-center justify-center rounded hover:bg-gray-200 transition"
             title="Zoom in"
           >
-            <Image
-              src="/zoom-in.svg"
-              alt="Adicionar ponto"
-              width={24}
-              height={24}
-            />
+            <Image src="/zoom-in.svg" alt="Zoom in" width={24} height={24} />
           </button>
           <button
             onClick={() => map.current?.zoomOut()}
             className="w-10 h-10 flex items-center justify-center rounded hover:bg-gray-200 transition"
             title="Zoom out"
           >
-            <Image
-              src="/zoom-out.svg"
-              alt="Adicionar ponto"
-              width={24}
-              height={24}
-            />
+            <Image src="/zoom-out.svg" alt="Zoom out" width={24} height={24} />
           </button>
         </div>
       </div>
