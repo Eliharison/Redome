@@ -4,13 +4,18 @@ import Link from 'next/link';
 
 export function Hero() {
   return (
-    <section
-      id="hero"
-      className="flex md:flex-row items-center bg-cover bg-center"
-      style={{ backgroundImage: "url('/fundo.jpg')", minHeight: '42.25rem' }}
-    >
+    <section className="relative min-h-[42.25em]">
+      <Image
+        id="hero"
+        className="absolute inset-0 object-cover w-full h-full"
+        src={"/fundo.webp"}
+        alt="Fundo da página"
+        fill
+        sizes="100vw"
+        priority
+      />
       {/* Texto */}
-      <div className="w-full md:flex-1 p-6 md:p-12 text-white text-center md:text-left">
+      <div className="relative z-10 w-full md:flex-1 p-6 md:p-12 text-white text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
           Redome: Proteção Completa Contra a Dengue
         </h1>
@@ -24,8 +29,6 @@ export function Hero() {
           Ir para Demonstração
         </Link>
       </div>
-
-      
     </section>
   );
 }
