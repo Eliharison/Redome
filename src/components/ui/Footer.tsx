@@ -8,7 +8,7 @@ export function Footer() {
         bg-[#1A2E48] text-white
         py-8 px-4
         flex flex-col items-center
-        md:flex-row md:justify-between md:items-start
+        md:flex-row md:justify-around md:items-start
         text-center md:text-left
       "
     >
