@@ -3,13 +3,13 @@ import Image from 'next/image';
 export function Tech() {
   return (
     <section id="tecnologia" className="bg-white">
-      <div className="max-w-1xl mx-auto p-6 md:p-12">
+      <div className="max-w-1xl mx-auto p-6 md:py-12 md:px-12">
         <h2 className="text-3xl md:text-3xl text-[#1A2E48] font-bold mb-2 relative inline-block">
           Nossa Tecnologia
           <span className="block w-12 h-1 bg-[#1A2E48] rounded-xl mt-4 mb-6"></span>
         </h2>
         <div className="flex flex-wrap gap-8 items-start">
-          <div className="flex-1 min-w-[400px]">
+          <div className="flex-1">
             <p className="text-base text-[#2c3e50] mb-4">O Redome utiliza uma combinação exclusiva de:</p>
             <ul className="list-none my-4 space-y-3">
               {[

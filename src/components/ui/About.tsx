@@ -4,7 +4,7 @@ import Image from 'next/image'
 export function About() {
   return (
     <section id="sobre" className="bg-[#E3F4F4]">
-      <div className="max-w-1xl mx-auto flex flex-wrap items-center justify-around gap-8 p-6 md:p-12">
+      <div className="max-w-1xl mx-auto flex flex-wrap items-center justify-between gap-8 p-6 md:p-12">
         {/* Texto */}
         <div className="flex-1 min-w-[300px] max-w-[800px]">
           <h2 className="text-3xl text-[#1A2E48] font-bold mb-4">Sobre o Redome</h2>
