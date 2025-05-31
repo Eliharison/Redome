@@ -22,7 +22,7 @@ export function Team() {
       },
       {
         name: 'Renato Odake',
-        role: 'Iot Developer',
+        role: 'Back-End Developer - IOT',
         image: '/Renato.jpg',
       },
       {
