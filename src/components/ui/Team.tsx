@@ -2,28 +2,28 @@ export function Team() {
     const team = [
       {
         name: 'Asher Novelli',
-        role: 'Back-end Developer',
-        image: '/Asher.jpg',
+        role: 'Back-end Developer && IOT',
+        image: '/Asher.jpeg',
       },
       {
         name: 'Eliharison Gabriel',
         role: 'Front-end Developer',
-        image: '/Eli.jpg',
+        image: '/Eli.jpeg',
       },
       {
         name: 'Gabriel Henrique',
         role: 'Front-end Developer',
-        image: '/Gabriel.jpg',
+        image: '/Gabriel.jpeg',
       },
       {
         name: 'Leticia Sayuri',
         role: 'UX Designer',
-        image: '/Leticia.jpg',
+        image: '/Leticia.jpeg',
       },
       {
         name: 'Renato Odake',
-        role: 'Back-End Developer - IOT',
-        image: '/Renato.jpg',
+        role: 'Back-End Developer && IOT',
+        image: '/Renato.jpeg',
       },
       {
         name: 'Rodrigo da Silva',

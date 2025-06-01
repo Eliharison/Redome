@@ -2,8 +2,8 @@
 
 import {
   Leaf,
-  Smartphone,
-  Timer,
+  DollarSign,
+  Shield,
 } from 'lucide-react';
 
 export function Benefits() {
@@ -11,36 +11,47 @@ export function Benefits() {
     {
       icon: <Leaf className="w-8 h-8 text-[#1A2E48]" />,
       title: 'Sustentabilidade',
-      desc: 'Zero impacto ambiental com componentes biodegradáveis.',
+      desc: 'Reduz em até 81% as emissões de gases de efeito estufa associadas à fabricação do dispositivo.',
     },
     {
-      icon: <Smartphone className="w-8 h-8 text-[#1A2E48]" />,
-      title: 'Controle Inteligente',
-      desc: 'Monitoramento remoto via aplicativo exclusivo.',
+      icon: <DollarSign className="w-8 h-8 text-[#1A2E48]" />,
+      title: 'Baixo Custo e Escalável',
+      desc: 'Permite diminuir o CAPEX inicial em até 60% frente a soluções convencionais.',
     },
     {
-      icon: <Timer className="w-8 h-8 text-[#1A2E48]" />,
-      title: 'Proteção Contínua',
-      desc: 'Atuação imediata ao detectar atividade de mosquitos.',
+      icon: <Shield className="w-8 h-8 text-[#1A2E48]" />,
+      title: 'Segurança e Saúde',
+      desc: 'Minimiza a exposição ocupacional e potencializa a prevenção.',
     },
   ];
 
   return (
-    <section id="beneficios" className="bg-[#E3F4F4]">
+    <section id="beneficios" className="bg-[#fbfbfb]">
       <div className="max-w-1xl mx-auto p-6 md:p-12">
-        <h2 className="text-3xl text-[#1A2E48] text-center mb-6 relative inline-block font-bold sm:ml-4">
+        {/* Título pequeno */}
+        <p className="text-xl text-[#1A2E48] font-bold mb-8">
+          Recursos Principais
+        </p>
+        {/* Título grande */}
+        <h2 className="text-3xl text-[#1A2E48] text-left mb-6 relative inline-block font-bold md:ml-0 sm:ml-4">
           Vantagens Exclusivas
-          <span className="block w-12 h-1 bg-[#1A2E48] rounded-xl mt-4 mb-6"></span>
+        
         </h2>
+        <p className='mb-7'>Solução inteligente e automatizada que reduz a exposição dos agentes e aumenta a eficiência no combate ao mosquito.</p>
+
         <div className="flex flex-wrap gap-6 justify-center">
           {benefits.map((b, i) => (
             <div
               key={i}
-              className="flex-1 min-w-[300px] cursor-pointer rounded-xl p-6 flex flex-col items-center text-center bg-[#C7D9DD] transition-transform hover:translate-y-[-5px] hover:shadow-xl"
+              className="flex-1 min-w-[300px] cursor-pointer rounded-xl p-6 flex flex-col items-start text-left bg-[#F0F4F8] transition-transform hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="mb-4">{b.icon}</div>
-              <h3 className="text-xl text-[#1A2E48] font-semibold mb-2">{b.title}</h3>
-              <p className="text-base leading-relaxed text-justify">{b.desc}</p>
+              <h3 className="text-xl text-[#1A2E48] font-semibold mb-2">
+                {b.title}
+              </h3>
+              <p className="text-base leading-relaxed">
+                {b.desc}
+              </p>
             </div>
           ))}
         </div>

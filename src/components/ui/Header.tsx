@@ -42,8 +42,11 @@ export function Header() {
           </li>
         </ul>
       </nav>
+      
       {/* Botão Flutuante Mobile */}
       <FloatingMenu pathname={pathname} />
+      
+
     </header>
   );
 }
